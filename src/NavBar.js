@@ -4,8 +4,7 @@ import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 function NavBar() {
   const [nav, setNav] = useState(false);
-  const [color, setColor] = useState("red");
-  const [textColor, setTextColor] = useState("white");
+
   const toggleNav = () => {
     setNav(!nav);
   };
@@ -13,20 +12,19 @@ function NavBar() {
   return (
     <>
       <div
-        className="fixed left-0 top-0 w-100  ease-in duration-300"
-        style={{ backgroundColor: `${color} `, zIndex: "10" }}
+        className="fixed left-0 top-0 w-100  ease-in duration-300 bg-dark"
+        style={{ zIndex: "10" }}
       >
-        <div className="max-w-[12] m-auto  d-flex justify-content-between align-items-center p-4">
-          <Link
-            to="/"
-            className=" font-bold  text-decoration-none"
-            style={{ color: `${textColor}` }}
-          >
+        <div
+          className="m-auto  d-flex justify-content-between py-2  align-items-center"
+          // Adding a padding to the navbar
+        >
+          <Link to="/" className=" font-bold  text-decoration-none text-light">
             <h1 className="text-2xl font-bold ">Logo</h1>
           </Link>{" "}
           <ul
-            style={{ color: `${textColor}`, listStyle: "none" }}
-            className="d-none d-sm-flex"
+            style={{ listStyle: "none" }}
+            className="d-none d-sm-flex px-2 text-light"
           >
             <Link to="/" className="text-decoration-none text-light">
               <li className="p-2">Home</li>
@@ -64,14 +62,15 @@ function NavBar() {
           <div
             className={
               nav
-                ? " position-absolute right-0  left-0 bottom-0 top-0 w-100 h-100 d-flex  justify-content-center align-items-center bg-dark text-light   d-sm-none"
+                ? " position-absolute right-0  left-0 bottom-0 top-0 w-100 h-100 d-flex  justify-content-center align-items-center bg-dark text-light  d-sm-none"
                 : "d-none"
             }
             style={{ width: "100%", height: "100%", zIndex: "5" }}
           >
             <ul
-              style={{ color: `${textColor}`, listStyle: "none" }}
-              className="d-flex flex-column"
+              style={{ listStyle: "none" }}
+              className="d-flex flex-column text-light"
+              onClick={toggleNav}
             >
               <Link to="/" className="text-decoration-none text-light p-3">
                 <li className="p-2">Home</li>
