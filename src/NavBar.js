@@ -13,10 +13,10 @@ function NavBar() {
   return (
     <>
       <div
-        className="fixed left-0 top-0 w-full z-index-10 ease-in duration-300"
-        style={{ backgroundColor: `${color}` }}
+        className="fixed left-0 top-0 w-100  ease-in duration-300"
+        style={{ backgroundColor: `${color} `, zIndex: "10" }}
       >
-        <div className="max-w-7xl m-auto  d-flex justify-content-between align-items-center p-4">
+        <div className="max-w-[12] m-auto  d-flex justify-content-between align-items-center p-4">
           <Link
             to="/"
             className=" font-bold  text-decoration-none"
@@ -42,17 +42,20 @@ function NavBar() {
             </Link>
           </ul>
           {/* Mobile Button */}
-          <div className="d-block d-sm-none z-3 cursor-pointer">
+          <div
+            className="d-block d-sm-none cursor-pointer"
+            style={{ zIndex: "10" }}
+          >
             {nav ? (
               <AiOutlineClose
                 onClick={toggleNav}
-                className="text-light z-3"
+                className="text-light"
                 size={30}
               />
             ) : (
               <AiOutlineMenu
                 onClick={toggleNav}
-                className="text-light z-3"
+                className="text-light "
                 size={30}
               />
             )}
@@ -61,13 +64,28 @@ function NavBar() {
           <div
             className={
               nav
-                ? "d-flex position-absolute right-0 left-0 bottom-0 top-0  justify-content-center align-items-center  d-sm-none"
+                ? " position-absolute right-0  left-0 bottom-0 top-0 w-100 h-100 d-flex  justify-content-center align-items-center bg-dark text-light   d-sm-none"
                 : "d-none"
             }
+            style={{ width: "100%", height: "100%", zIndex: "5" }}
           >
-            <div className="d-flex justify-content-center">
-              yvbun
-            </div>
+            <ul
+              style={{ color: `${textColor}`, listStyle: "none" }}
+              className="d-flex flex-column"
+            >
+              <Link to="/" className="text-decoration-none text-light p-3">
+                <li className="p-2">Home</li>
+              </Link>
+              <Link to="/" className="text-decoration-none text-light p-3">
+                <li className="p-2">Home</li>
+              </Link>
+              <Link to="/" className="text-decoration-none text-light p-3">
+                <li className="p-2">Home</li>
+              </Link>
+              <Link to="/" className="text-decoration-none text-light p-3">
+                <li className="p-2">Home</li>
+              </Link>
+            </ul>
           </div>
         </div>
       </div>
